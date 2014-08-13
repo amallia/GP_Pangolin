@@ -45,6 +45,7 @@
 #include "DataAns.h"
 #include "Maxscoreqi.h"
 #include "orqi.h"
+#include "And.h"
 
 using namespace std;
 
@@ -414,7 +415,7 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 
 	/* perform query processing for each query */
 //	while( qn++ < 49984) {  //for result 500
-	while( qn++ < 50000) {
+	while( qn++ < 1) {
 	// while( qn++ < 300000) {
 
 		++queriesFIterator;
@@ -423,7 +424,7 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 			break;
 		}
 
-    	// if(qn<=300000)
+    	// if(qn<=150000)
     	// 	continue;
 
 		std::vector<std::string> word_l = (*queriesFIterator);
@@ -456,8 +457,9 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 		// Wand wand(pages);                    		 // WAND
 		// Maxscore wand(pages);              	 	 // Maxscore
 //		DataAns wand(pages);                 // DataAns
-		Maxscoreqi wand(pages);		
+		// Maxscoreqi wand(pages);		
 		// orqi wand(pages);
+		And wand(pages);
 
 
 		// ########################################################################################
@@ -597,9 +599,9 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 		p.start(CONSTS::ALLQS); 		// Start measuring qp time - NOTE: that OTF BMG is already measured if DocID-Oriented Block-Max structures are used (DOCIDBLOCKMAX is defined)
 
 		// various default parameters for running algorithms
-		// wand(lps, topk, res);   //or
+		wand(lps, topk, res);   //or and
 		//wand(lps, topk, 0.0f);
-		wand(lps, topk, res, 0.0f);  //Maxscore
+		// wand(lps, topk, res, 0.0f);  //Maxscore
 		//wand(lps, topk, res, 0.0f, 0);
 		// wand(lps, qn);  //DataAns
 		//PriorityArray<QpResult> resultsHeap = wand(lps, topk);

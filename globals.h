@@ -156,9 +156,9 @@ namespace CONSTS {
 	/*pangolin*/
 	const std::string trec_output("/data/qw376/trec_output/"); //to generate babyindex
 	const std::string trecRoot("/data/qw376/trec_output/"); //main index
-	const std::string testingQuery("/data/qw376/experiments/pairs_testing_set_sorted_uniq_nodup_nosym");
+	// const std::string testingQuery("/data/qw376/experiments/pairs_testing_set_sorted_uniq_nodup_nosym");
 	// const std::string testingQuery("/data/qw376/experiments/true_queries_WSDM"); //main query
-	// const std::string testingQuery("/data/qw376/experiments/test_query"); //main query
+	const std::string testingQuery("/data/qw376/experiments/test_query"); //main query
 	const std::string doclenFileName("/data/constantinos/Index/documentLengths"); //doc lengths
 	const std::string basic_table("/data/qw376/experiments/lexicon_baby_712"); //lexicon
 	const std::string score_index_binary("/data/qw376/score_index_binary/");//score sorted binary dir
