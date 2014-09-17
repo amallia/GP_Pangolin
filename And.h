@@ -10,7 +10,7 @@
 
 #include "PostingOriented_BMW.h"
 
-class ExhaustiveOR{
+class And{
 private:
 	unsigned int* pages;
 

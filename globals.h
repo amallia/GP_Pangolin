@@ -154,18 +154,36 @@ namespace CONSTS {
 	// const std::string index_kl("/home/qi/Dropbox/experiments/index_kl");//known index
 
 	/*pangolin*/
-	const std::string trec_output("/data/qw376/trec_output/"); //to generate babyindex
-	const std::string trecRoot("/data/qw376/trec_output/"); //main index
-	// const std::string testingQuery("/data/qw376/experiments/pairs_testing_set_sorted_uniq_nodup_nosym");
-	// const std::string testingQuery("/data/qw376/experiments/true_queries_WSDM"); //main query
-	const std::string testingQuery("/data/qw376/experiments/test_query"); //main query
-	const std::string doclenFileName("/data/constantinos/Index/documentLengths"); //doc lengths
-	const std::string basic_table("/data/qw376/experiments/lexicon_baby_712"); //lexicon
-	const std::string score_index_binary("/data/qw376/score_index_binary/");//score sorted binary dir
-	const std::string pair_index("/data/qw376/pair_index/");//pair index top 1000
-	const std::string cr_results("/data/qw376/WSDM_Index_Script/500_cr");//cr results
-	const std::string index_depth("/data/qw376/experiments/depth_index_all");//depth index
-	const std::string index_kl("/data/qw376/experiments/index_kl");//known index
+	// const std::string trec_output("/data/qw376/trec_output/"); //to generate babyindex
+	// const std::string trecRoot("/data/qw376/trec_output/"); //main index
+	// // const std::string testingQuery("/data/qw376/experiments/pairs_testing_set_sorted_uniq_nodup_nosym");
+	// const std::string testingQuery("/data/qw376/experiments/true_queries_WSDM"); //main 
+	// // const std::string testingQuery("/data/qw376/experiments/queries_813"); //main query
+	// // const std::string testingQuery("/data/qw376/experiments/test_query"); //main query
+	// const std::string doclenFileName("/data/constantinos/Index/documentLengths"); //doc lengths
+	// const std::string basic_table("/data/qw376/experiments/lexicon_baby_712"); //lexicon
+	// const std::string score_index_binary("/data/qw376/score_index_binary/");//score sorted binary dir
+	// const std::string pair_index("/data/qw376/pair_index_testq/");//pair index top 1000
+	// const std::string cr_results("/data/qw376/WSDM_Index_Script/500_cr");//cr results
+	// const std::string index_depth("/data/qw376/experiments/depth_index_d7");//depth index
+	// const std::string index_kl("/data/qw376/experiments/index_kl_0_1000");//known index
+	// const std::string clueweb_index("/data/constantinos/InvertedIndex");//clueweb whole index
+
+	/*vida*/
+	const std::string trec_output("/home/vgc/qi/trec_output/"); //to generate babyindex
+	const std::string trecRoot("/home/vgc/qi/trec_output/"); //main index
+	const std::string testingQuery("/home/vgc/qi/experiments/pairs_testing_set_sorted_uniq_nodup_nosym");
+	// const std::string testingQuery("/home/vgc/qi/experiments/Query8-22"); //main 
+	// const std::string testingQuery("/home/vgc/qi/experiments/true_queries_WSDM"); //main query
+	// const std::string testingQuery("/home/vgc/qi/experiments/test_query"); //main query
+	const std::string doclenFileName("/home/vgc/qi/Info_Clueweb/documentLengths"); //doc lengths
+	const std::string basic_table("/home/vgc/qi/experiments/lexicon_baby_712"); //lexicon
+	const std::string score_index_binary("/home/vgc/qi/score_index_binary/");//score sorted binary dir
+	const std::string pair_index("/home/vgc/qi/pair_index_testq_or/");//pair index top 1000
+	const std::string cr_results("/home/vgc/qi/WSDM_Index_Script/500_cr");//cr results
+	const std::string index_depth("/home/vgc/qi/experiments/depth_index_d7");//depth index
+	const std::string index_kl("/home/vgc/qi/experiments/index_kl_0_1000");//known index
+	const std::string clueweb_index("/home/vgc/qi/Info_Clueweb/InvertedIndex");//clueweb whole index
 
 
 

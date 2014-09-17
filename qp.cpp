@@ -155,7 +155,7 @@ void QueryProcessing::fillTermsMap_clueweb(termsMap& lex, const std::string& pat
 					++itr1;
 				}
 				term = string(start1, itr1);
-				cout<<"term: "<<term<<" ";
+				// cout<<"term: "<<term<<" ";
 				//term
 
 				 //termID, come after the 1st space
@@ -167,7 +167,7 @@ void QueryProcessing::fillTermsMap_clueweb(termsMap& lex, const std::string& pat
 
 			  	 termid_s = string(start1,itr1);
 			  	 termid = atoi(termid_s.c_str());
-			  	 cout<<"termid: "<<termid<<" ";
+			  	 // cout<<"termid: "<<termid<<" ";
 			  	 //termID
 
 			  	 //listLen, come after the 2nd space
@@ -178,7 +178,7 @@ void QueryProcessing::fillTermsMap_clueweb(termsMap& lex, const std::string& pat
 			  	 }
 			  	 listLen_s = string(start1, itr1);
 			  	 listLen = atoi(listLen_s.c_str());
-				 cout<<"listLen: "<<listLen<<endl;
+				 // cout<<"listLen: "<<listLen<<endl;
 
 			  	 //listLen
 
@@ -306,9 +306,10 @@ public:
 //		}
 //		fprintf(fresult_log, "\n");
 
-// 		for (int i = 0 ; i <= position_in_topk; i++)
-// //			fprintf(fresult_log,"%d   %4.30f\n", res[i].did, res[i].score );
-// 			fprintf(fresult_log,"%d ", res[i].did );
+		for (int i = 0 ; i <= position_in_topk; i++)
+			fprintf(fresult_log,"%d, %4.30f ", res[i].did, res[i].score );
+			// fprintf(fresult_log,"%d ", res[i].did );
+		fprintf(fresult_log, "\n");
 
 // 		fprintf(fresult_log,"\n");
 
@@ -327,30 +328,25 @@ public:
 		// 		}
 		// 		fprintf(fqscore, "\n");
 
-		ofstream pairinfo;
-		// pairinfo.open("/home/qi/pair_index/pair_prefix");
-		// string fd("/home/qi/Dropbox/pair_ind/");
-		// string fd("/data/qw376/pair_index/");
-		string fd("/data/qw376/pair_index_testq/");
-		// pairinfo.open(fd.c_str(), ofstream::app);
-		// pairinfo.open("/home/qi/Dropbox/experiments/pair_prefix_b", ios::app | ios::binary);
+		// ofstream pairinfo;
 
-		for (int i = 0 ; i <= position_in_topk; i++){
+		// for (int i = 0 ; i <= position_in_topk; i++){
 
-			string ufd = fd + res[i].terms[0] + "+" + res[i].terms[1];
-			pairinfo.open(ufd.c_str(), ofstream::app);
-			pairinfo<<res[i].did<<" "<<res[i].score<<" ";
-			pairinfo<<res[i].freq[0]<<" "<<res[i].scores[0]<<" ";
-			pairinfo<<res[i].freq[1]<<" "<<res[i].scores[1]<<endl;
+		// 	string ufd = CONSTS::pair_index + res[i].terms[0] + "+" + res[i].terms[1];
+		// 	pairinfo.open(ufd.c_str(), ofstream::app);
+		// 	// pairinfo.open("/home/qi/Dropbox/experiments/pair_prefix_b", ios::app | ios::binary);
+		// 	pairinfo<<res[i].did<<" "<<res[i].score<<" ";
+		// 	pairinfo<<res[i].freq[0]<<" "<<res[i].scores[0]<<" ";
+		// 	pairinfo<<res[i].freq[1]<<" "<<res[i].scores[1]<<endl;
 
-			// pairinfo.write((char*)&res[i].did, sizeof(unsigned long));
-			// pairinfo.write((char*)&res[i].score, sizeof(float));
+		// 	// pairinfo.write((char*)&res[i].did, sizeof(unsigned long));
+		// 	// pairinfo.write((char*)&res[i].score, sizeof(float));
 
-			// pairinfo.write((char*)res[i].freq, sizeof(res[i].freq)*sizeof(int));
-			// pairinfo.write((char*)res[i].scores, sizeof(res[i].scores)*sizeof(float));
+		// 	// pairinfo.write((char*)res[i].freq, sizeof(res[i].freq)*sizeof(int));
+		// 	// pairinfo.write((char*)res[i].scores, sizeof(res[i].scores)*sizeof(float));
 
-			pairinfo.close();
-		}
+		// 	pairinfo.close();
+		// }
 
 		// pairinfo.close();
 
@@ -414,9 +410,9 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 	// DataAns wand(pages);
 
 	/* perform query processing for each query */
-//	while( qn++ < 49984) {  //for result 500
-	while( qn++ < 1) {
-	// while( qn++ < 300000) {
+	// while( qn++ < 150000) {  //for result 500
+	while( qn++ < 32) {
+	// while( qn++ < 2) {
 
 		++queriesFIterator;
 		if(queriesFIterator == logManager.end()) {
@@ -453,13 +449,13 @@ void QueryProcessing::operator()(const char* queryLog, const int buckets, const 
 		// NOTE: Uncomment one of the following algorithms and make sure you call it with the appropriate arguments and returns the appropriate value
 		// ########################################################################################
 		// (1) Algorithms without Block-Max Indexes
-//		ExhaustiveOR wand(pages);                  // Exhaustive OR
+		ExhaustiveOR wand(pages);                  // Exhaustive OR
 		// Wand wand(pages);                    		 // WAND
 		// Maxscore wand(pages);              	 	 // Maxscore
 //		DataAns wand(pages);                 // DataAns
 		// Maxscoreqi wand(pages);		
 		// orqi wand(pages);
-		And wand(pages);
+		// And wand(pages);
 
 
 		// ########################################################################################
@@ -1461,8 +1457,10 @@ QueryLogManager::QueryLogManager(const char* fname, termsMap *l) :lex(l){
 				CERR << word << " is not in lex" << Log::endl;
 		}
 
-		if(terms.size()==2) //for pairs only added by Qi
-		   queriesD.push_back(terms);
+		// if(terms.size()==2) //for pairs only added by Qi
+		//    queriesD.push_back(terms);
+		
+		queriesD.push_back(terms);
 		setScoreForQuery(terms,0.0);
 	}
 	//COUT << queriesD.size() << " queries loaded" << Log::endl;

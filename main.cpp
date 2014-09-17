@@ -120,7 +120,7 @@ int main(int argc, char * argv[] ){
 	   }
 
 	   QueryProcessing qp(Cache);
-	   topk = 1000;
+	   topk = 200;
 	   qp(queryFile.c_str(), buckets, limit, topk, layer); //process the queries
 	   qp.printReport();
 	   COUT1 << "start cleanup" << Log::endl;
